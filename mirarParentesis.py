@@ -1,35 +1,26 @@
 #  write a function that verified the correct order of the parenthesis
 
+def search_key(msg, key):
+
+    if len(key ) > 1 : 
+        return "No se pueden buscar palabras"
+    for i in msg:
+        if i == key:
+            return True
+
+
 def run():
     message = input("Escriba el mensaje \n: ")
-
-    open_list = ['(', '{', '[']
-    close_list = [')', '}', ']']
+    key = input("mensaje o Letra a buscar: ")
     
-    stack = []
-    for i in message:
-        if i in open_list:
-            stack.append(i)
-        elif i in close_list:
-            pos = close_list.index(i)
-
-            if len(stack > 0) and open_list[pos] == stack[len(stack) -1]:
-                stack.pop()
-            else:
-                return False
-      
-    if len(stack) == 0:
-        return True
+    if search_key(message, key):
+        print('yes')
     else:
-        return False
+        print('no')
        
 
 
 
 
 if __name__ == '__main__':
-    if run():
-        print('Orden Correcto!')
-    else:
-        print('Orden incorrecto!')
-
+    run()
